@@ -2,11 +2,13 @@ package shared;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 public class Result extends UnicastRemoteObject {
   private int id;
   private int candidateId;
   private int totalVotes;
+  private ArrayList<Vote> votes = new ArrayList<Vote>();
 
   public Result(int id) throws RemoteException {
     this.id = id;
@@ -36,5 +38,13 @@ public class Result extends UnicastRemoteObject {
 
   public Result getResult() throws RemoteException {
     return this;
+  }
+
+  public void addVote(Vote vote) throws RemoteException {
+    votes.add(vote);
+  }
+
+  public int getNextVoteId() throws RemoteException {
+    return votes.size() + 1;
   }
 }
