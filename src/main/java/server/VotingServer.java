@@ -3,6 +3,8 @@ package server;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+import shared.VotingService;
+
 public class VotingServer {
     public static void main(String[] args) {
     try {
@@ -16,12 +18,12 @@ public class VotingServer {
         System.out.println("No registry found. Created a new registry on port 1099.");
       }
 
-      VotingService server = new VotingServiceImpl();
+      VotingService service = new VotingServiceImpl();
       
-      registry.rebind("VotingServer", server);
-      System.out.println("Calculator Service is running...");
+      registry.rebind("VotingService", service);
+      System.out.println("VotingServer Service is running...");
     } catch (Exception e) {
-      System.err.println("Calculator server failed:");
+      System.err.println("VotingServer server failed:");
       e.printStackTrace();
     }
   }

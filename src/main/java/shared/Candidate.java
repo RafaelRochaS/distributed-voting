@@ -1,10 +1,12 @@
 package shared;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-public class Candidate extends UnicastRemoteObject {
+public class Candidate implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   private int id;
   private String name;
   private String party;

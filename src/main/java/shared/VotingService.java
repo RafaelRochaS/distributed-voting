@@ -1,11 +1,8 @@
-package server;
+package shared;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-
-import shared.Candidate;
-import shared.Result;
 
 public interface VotingService extends Remote {
   void registerCandidate(Candidate Candidate) throws RemoteException;

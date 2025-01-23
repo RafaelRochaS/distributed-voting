@@ -1,13 +1,15 @@
 package server;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import shared.Candidate;
 import shared.Result;
 import shared.Vote;
+import shared.VotingService;
 
-public class VotingServiceImpl implements VotingService {
+public class VotingServiceImpl extends UnicastRemoteObject implements VotingService  {
   private ArrayList<Candidate> candidates;
   private ArrayList<Result> results;
   private int lastResultId = 0;
