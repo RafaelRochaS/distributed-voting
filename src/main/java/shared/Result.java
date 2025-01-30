@@ -9,13 +9,11 @@ public class Result implements Serializable {
 
   private int id;
   private int candidateId;
-  private int totalVotes;
   private ArrayList<Vote> votes = new ArrayList<Vote>();
 
   public Result(int id) throws RemoteException {
     this.id = id;
     this.candidateId = 0;
-    this.totalVotes = 0;
   }
 
   public int getCandidateId() throws RemoteException {
@@ -23,7 +21,7 @@ public class Result implements Serializable {
   }
 
   public int getTotalVotes() throws RemoteException {
-    return totalVotes;
+    return votes.size();
   }
 
   public int getId() throws RemoteException{
@@ -32,10 +30,6 @@ public class Result implements Serializable {
 
   public void setCandidateId(int candidateId) throws RemoteException {
     this.candidateId = candidateId;
-  }
-
-  public void setTotalVotes(int totalVotes) throws RemoteException {
-    this.totalVotes = totalVotes;
   }
 
   public Result getResult() throws RemoteException {

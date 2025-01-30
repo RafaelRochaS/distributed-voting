@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public interface VotingService extends Remote {
-  void registerCandidate(Candidate Candidate) throws RemoteException;
+  Candidate registerCandidate(String name, String party, String platform) throws RemoteException;
   void registerVote(int candidateId , int voterId) throws RemoteException;
   Candidate getCandidate(int candidateId) throws RemoteException;
   ArrayList<Candidate> getCandidates() throws RemoteException;

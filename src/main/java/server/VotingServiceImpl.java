@@ -21,8 +21,11 @@ public class VotingServiceImpl extends UnicastRemoteObject implements VotingServ
   }
 
   @Override
-  public void registerCandidate(Candidate candidate) throws RemoteException {
+  public Candidate registerCandidate(String name, String party, String platform) throws RemoteException {
+    Candidate candidate = new Candidate(candidates.size(), name, party, platform);
     candidates.add(candidate);
+
+    return candidate;
   }
 
   @Override
